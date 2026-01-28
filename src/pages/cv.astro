@@ -1,0 +1,167 @@
+---
+import Layout from '../layouts/Layout.astro';
+import GithubIcon from '../components/icons/social/GithubIcon.astro';
+import LinkedinIcon from '../components/icons/social/LinkedinIcon.astro';
+import MailIcon from '../components/icons/social/MailIcon.astro';
+import { Image } from 'astro:assets';
+
+// Tech logos
+import AngularLogo from '../assets/tech/angularIcon.svg';
+import AndroidStudioIcon from '../assets/tech/androidStudioIcon.svg';
+import CIcon from '../assets/tech/CIcon.svg';
+import CPPIcon from '../assets/tech/CPPIcon.svg';
+import CSS3Icon from '../assets/tech/CSS3Icon.svg';
+import DockerIcon from '../assets/tech/dockerIcon.svg';
+import FirebaseIcon from '../assets/tech/firebaseIcon.svg';
+import GitHubActionsIcon from '../assets/tech/githubActionsIcon.svg';
+import GitHubIcon from '../assets/tech/GitHubIcon.svg';
+import GitIcon from '../assets/tech/GitIcon.svg';
+import HTML5Icon from '../assets/tech/HTML5Icon.svg';
+import JavaIcon from '../assets/tech/JavaIcon.svg';
+import JavaScriptIcon from '../assets/tech/JavaScriptIcon.svg';
+import KotlinIcon from '../assets/tech/KotlinIcon.svg';
+import KubernetesIcon from '../assets/tech/KubernetesIcon.svg';
+import MongoDBIcon from '../assets/tech/MongoDBIcon.svg';
+import NodeJsIcon from '../assets/tech/Node.jsIcon.svg';
+import NumPyIcon from '../assets/tech/NumPyIcon.svg';
+import PandasIcon from '../assets/tech/PandasIcon.svg';
+import PythonIcon from '../assets/tech/PythonIcon.svg';
+import PyTorchIcon from '../assets/tech/PyTorchIcon.svg';
+import SciKitIcon from '../assets/tech/scikit-learnIcon.svg';
+import TensorFlowIcon from '../assets/tech/TensorFlowIcon.svg';
+import TypeScriptIcon from '../assets/tech/TypeScriptIcon.svg';
+
+const skills = [
+  { name: 'Angular', logo: AngularLogo },
+  { name: 'Android Studio', logo: AndroidStudioIcon },
+  { name: 'C', logo: CIcon },
+  { name: 'C++', logo: CPPIcon },
+  { name: 'CSS3', logo: CSS3Icon },
+  { name: 'Docker', logo: DockerIcon },
+  { name: 'Firebase', logo: FirebaseIcon },
+  { name: 'GitHub Actions', logo: GitHubActionsIcon },
+  { name: 'Git', logo: GitIcon },
+  { name: 'GitHub', logo: GitHubIcon },
+  { name: 'HTML5', logo: HTML5Icon },
+  { name: 'Java', logo: JavaIcon },
+  { name: 'JavaScript', logo: JavaScriptIcon },
+  { name: 'Kotlin', logo: KotlinIcon },
+  { name: 'Kubernetes', logo: KubernetesIcon },
+  { name: 'MongoDB', logo: MongoDBIcon },
+  { name: 'Node.js', logo: NodeJsIcon },
+  { name: 'NumPy', logo: NumPyIcon },
+  { name: 'Pandas', logo: PandasIcon },
+  { name: 'Python', logo: PythonIcon },
+  { name: 'PyTorch', logo: PyTorchIcon },
+  { name: 'scikit-learn', logo: SciKitIcon },
+  { name: 'TensorFlow', logo: TensorFlowIcon },
+  { name: 'TypeScript', logo: TypeScriptIcon },
+];
+---
+
+<Layout title="Mon CV | Portfolio">
+  <div class="max-w-4xl mx-auto space-y-12">
+    
+    <header class="border-b border-zinc-200 pb-8 flex flex-col md:flex-row justify-between items-center md:items-end gap-6">
+      <div class="text-center md:text-left">
+        <h1 class="text-4xl font-bold text-zinc-900 tracking-tight">Théo Fernando</h1>
+        <p class="text-xl text-indigo-600 font-medium mt-1">Software Engineering Student</p>
+      </div>
+
+      <div class="flex gap-5 items-center">
+        <a href="https://github.com/ton-pseudo" target="_blank" class="text-zinc-500 hover:text-black transition-colors" title="GitHub">
+          <GithubIcon class="w-7 h-7" />
+        </a>
+        <a href="https://linkedin.com/in/ton-profil" target="_blank" class="text-zinc-500 hover:text-[#0077B5] transition-colors" title="LinkedIn">
+          <LinkedinIcon class="w-7 h-7" />
+        </a>
+        <a href="mailto:email@test.com" class="text-zinc-500 hover:text-indigo-500 transition-colors" title="Email">
+          <MailIcon class="w-7 h-7" />
+        </a>
+      </div>
+    </header>
+
+    <section>
+      <h2 class="text-xs font-bold uppercase tracking-[0.2em] text-zinc-400 mb-6">Technologies & Tools</h2>
+      <div class="flex flex-wrap gap-3">
+        {skills.map(skill => (
+          <div class="flex items-center gap-2 px-3 py-1.5 rounded-full border border-zinc-100 bg-zinc-50/50 shadow-sm hover:border-indigo-200 hover:bg-white transition-all">
+            <Image src={skill.logo} alt={skill.name} class="w-4 h-4" />
+            <span class="text-xs font-semibold text-zinc-700">{skill.name}</span>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <hr class="border-zinc-100" />
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+      
+      <aside class="space-y-8">
+        <section>
+          <h2 class="text-xs font-bold uppercase tracking-[0.2em] text-zinc-400 mb-6">Languages</h2>
+          <div class="space-y-4">
+            <div class="flex flex-col">
+              <span class="font-bold text-zinc-800 text-sm">French</span>
+              <span class="text-xs text-zinc-500">Native</span>
+              <div class="w-full bg-zinc-100 h-1.5 mt-2 rounded-full overflow-hidden">
+                <div class="bg-indigo-500 h-full w-[100%]"></div>
+              </div>
+            </div>
+            <div class="flex flex-col">
+              <span class="font-bold text-zinc-800 text-sm">English</span>
+              <span class="text-xs text-zinc-500">Professional Proficiency (B2)</span>
+              <div class="w-full bg-zinc-100 h-1.5 mt-2 rounded-full overflow-hidden">
+                <div class="bg-indigo-400 h-full w-[75%]"></div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </aside>
+
+      <div class="md:col-span-2 space-y-12 border-l border-zinc-100 md:pl-10 relative">
+        
+        <section>
+          <h2 class="text-2xl font-bold text-zinc-900 mb-8 flex items-center gap-3">
+            <span class="w-8 h-[2px] bg-indigo-500"></span> Internships
+          </h2>
+          
+          <div class="space-y-10">
+            <div class="relative group">
+              <h3 class="text-lg font-bold text-zinc-800 group-hover:text-indigo-600 transition-colors">Web Developer Intern</h3>
+              <p class="text-indigo-500 text-sm font-semibold italic">City of La Seyne-sur-Mer (France) | Jun. 2025 - Aug. 2025</p>
+              <p class="mt-3 text-zinc-600 leading-relaxed text-sm">
+                Optimisation des performances web et management d'une équipe de 3 développeurs. Utilisation intensive d'Astro pour le SEO.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h2 class="text-2xl font-bold text-zinc-900 mb-8 flex items-center gap-3">
+            <span class="w-8 h-[2px] bg-indigo-500"></span> Éducation
+          </h2>
+          
+          <div class="space-y-8">
+            <div class="flex justify-between items-start gap-4">
+              <div>
+                <h3 class="font-bold text-zinc-800 text-md text-balance">Master Expert en Ingénierie Informatique</h3>
+                <p class="text-sm text-zinc-500">École Supérieure du Numérique</p>
+              </div>
+              <span class="text-sm font-medium text-zinc-400 whitespace-nowrap">2020</span>
+            </div>
+
+            <div class="flex justify-between items-start gap-4">
+              <div>
+                <h3 class="font-bold text-zinc-800 text-md text-balance">Licence Informatique</h3>
+                <p class="text-sm text-zinc-500">Université de Technologie</p>
+              </div>
+              <span class="text-sm font-medium text-zinc-400 whitespace-nowrap">2018</span>
+            </div>
+          </div>
+        </section>
+        
+      </div>
+    </div>
+  </div>
+</Layout>
