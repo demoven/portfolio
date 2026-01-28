@@ -59,25 +59,40 @@ const skills = [
 ];
 ---
 
-<Layout title="Mon CV | Portfolio">
+<Layout title="CV | Théo Fernando">
   <div class="max-w-4xl mx-auto space-y-12">
     
     <header class="border-b border-zinc-200 pb-8 flex flex-col md:flex-row justify-between items-center md:items-end gap-6">
       <div class="text-center md:text-left">
         <h1 class="text-4xl font-bold text-zinc-900 tracking-tight">Théo Fernando</h1>
         <p class="text-xl text-indigo-600 font-medium mt-1">Software Engineering Student</p>
+		<p class="text-sm text-zinc-500 mt-2 flex items-center justify-center md:justify-start gap-2">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+          +33 7 83 07 99 38
+        </p>
       </div>
 
-      <div class="flex gap-5 items-center">
-        <a href="https://github.com/ton-pseudo" target="_blank" class="text-zinc-500 hover:text-black transition-colors" title="GitHub">
-          <GithubIcon class="w-7 h-7" />
+      <div class="flex flex-col items-center md:items-end gap-4">
+        <a 
+          href="/CV_En_Théo_Fernando.pdf" 
+          download 
+          class="flex items-center gap-2 px-4 py-2 bg-zinc-900 text-white text-sm font-bold rounded-lg hover:bg-indigo-600 transition-all shadow-lg hover:shadow-indigo-200 active:scale-95"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+          Download PDF
         </a>
-        <a href="https://linkedin.com/in/ton-profil" target="_blank" class="text-zinc-500 hover:text-[#0077B5] transition-colors" title="LinkedIn">
-          <LinkedinIcon class="w-7 h-7" />
-        </a>
-        <a href="mailto:email@test.com" class="text-zinc-500 hover:text-indigo-500 transition-colors" title="Email">
-          <MailIcon class="w-7 h-7" />
-        </a>
+
+        <div class="flex gap-5 items-center">
+          <a href="https://github.com/demoven" target="_blank" class="text-zinc-500 hover:text-black transition-colors" title="GitHub">
+            <GithubIcon class="w-7 h-7" />
+          </a>
+          <a href="https://linkedin.com/in/théo-fernando" target="_blank" class="text-zinc-500 hover:text-[#0077B5] transition-colors" title="LinkedIn">
+            <LinkedinIcon class="w-7 h-7" />
+          </a>
+          <a href="mailto:theofernando83@gmail.com" class="text-zinc-500 hover:text-indigo-500 transition-colors" title="Email">
+            <MailIcon class="w-7 h-7" />
+          </a>
+        </div>
       </div>
     </header>
 
