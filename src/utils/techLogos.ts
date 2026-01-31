@@ -26,6 +26,7 @@ import PyTorchIcon from '../assets/tech/PyTorchIcon.svg';
 import SciKitIcon from '../assets/tech/scikit-learnIcon.svg';
 import TensorFlowIcon from '../assets/tech/TensorFlowIcon.svg';
 import TypeScriptIcon from '../assets/tech/TypeScriptIcon.svg';
+import ComposeIcon from '../assets/tech/ComposeIcon.svg';
 
 export interface TechSkill {
     name: string;
@@ -57,6 +58,7 @@ export const techSkills: TechSkill[] = [
     { name: 'scikit-learn', logo: SciKitIcon },
     { name: 'TensorFlow', logo: TensorFlowIcon },
     { name: 'TypeScript', logo: TypeScriptIcon },
+    { name: 'Compose', logo: ComposeIcon },
 ];
 
 // Utility function to get logo by tech name
