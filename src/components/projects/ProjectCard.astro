@@ -6,9 +6,13 @@ import { getLogoByName } from "../../utils/techLogos";
 
 interface Props {
     project: CollectionEntry<"projects">;
+    index: number;
 }
 
-const { project } = Astro.props;
+const { project, index } = Astro.props;
+
+// Only load eagerly for the first 4 projects (above the fold)
+const loadingStrategy = index < 3 ? "eager" : "lazy";
 ---
 
 <a
@@ -19,6 +23,7 @@ const { project } = Astro.props;
         <Image
             src={project.data.image}
             alt={project.data.title}
+            loading={loadingStrategy}
             width={600}
             height={400}
             class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
@@ -60,6 +65,7 @@ const { project } = Astro.props;
                                     src={logo}
                                     alt={tech}
                                     class="w-5 h-5 object-contain"
+                                    loading={loadingStrategy}
                                 />
                             ) : (
                                 <span class="text-[10px] font-bold text-zinc-400">

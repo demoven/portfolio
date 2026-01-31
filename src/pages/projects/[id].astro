@@ -1,12 +1,12 @@
 ---
-import Layout from '../../layouts/Layout.astro';
-import { getCollection, render } from 'astro:content';
-import { Image } from 'astro:assets';
-import GithubIcon from '../../components/icons/social/GithubIcon.astro'; // Assure-toi que le chemin est correct
+import Layout from "../../layouts/Layout.astro";
+import { getCollection, render } from "astro:content";
+import { Image } from "astro:assets";
+import GithubIcon from "../../components/icons/social/GithubIcon.astro"; // Assure-toi que le chemin est correct
 
 // Génère les chemins dynamiques pour chaque projet (id)
 export async function getStaticPaths() {
-  const projects = await getCollection('projects');
+  const projects = await getCollection("projects");
   return projects.map((project) => ({
     params: { id: project.id },
     props: { project },
@@ -18,13 +18,19 @@ const { project } = Astro.props;
 const { Content } = await render(project); // Pour afficher le contenu Markdown
 
 // Logique pour récupérer les logos (identique au CV)
-const allLogos = import.meta.glob<{ default: ImageMetadata }>('/src/assets/tech/*.svg', { eager: true });
+const allLogos = import.meta.glob<{ default: ImageMetadata }>(
+  "/src/assets/tech/*.svg",
+  { eager: true },
+);
 
 const getLogoPath = (techName: string) => {
-  const normalizedSearch = techName.toLowerCase().replace(/[^a-z0-9]/g, '');
+  const normalizedSearch = techName.toLowerCase().replace(/[^a-z0-9]/g, "");
   const entry = Object.entries(allLogos).find(([path]) => {
-    const fileName = path.split('/').pop()?.toLowerCase() || '';
-    const normalizedFile = fileName.replace(/[^a-z0-9]/g, '').replace('icon', '').replace('logo', '');
+    const fileName = path.split("/").pop()?.toLowerCase() || "";
+    const normalizedFile = fileName
+      .replace(/[^a-z0-9]/g, "")
+      .replace("icon", "")
+      .replace("logo", "");
     return normalizedFile.includes(normalizedSearch);
   });
   return entry ? entry[1].default : null;
@@ -33,24 +39,48 @@ const getLogoPath = (techName: string) => {
 
 <Layout title={`${project.data.title} | Théo Fernando`}>
   <div class="max-w-4xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
-    <a href="/projects" class="inline-flex items-center text-indigo-600 hover:text-indigo-800 transition-colors mb-8">
-      <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 mr-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+    <a
+      href="/projects"
+      class="inline-flex items-center text-indigo-600 hover:text-indigo-800 transition-colors mb-8"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        class="w-4 h-4 mr-2"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        ><polyline points="15 18 9 12 15 6"></polyline></svg
+      >
       Back to Projects
     </a>
 
-    <article class="bg-white rounded-xl shadow-lg border border-zinc-100 p-8 space-y-8">
+    <article
+      class="bg-white rounded-xl shadow-lg border border-zinc-100 p-8 space-y-8"
+    >
       <header class="text-center">
-        <h1 class="text-4xl font-bold text-zinc-900 mb-3 leading-tight">{project.data.title}</h1>
+        <h1 class="text-4xl font-bold text-zinc-900 mb-3 leading-tight">
+          {project.data.title}
+        </h1>
         <p class="text-zinc-500 text-sm italic">
-          {new Date(project.data.date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
+          {
+            new Date(project.data.date).toLocaleDateString("en-US", {
+              year: "numeric",
+              month: "long",
+              day: "numeric",
+            })
+          }
         </p>
       </header>
 
-      <Image 
-        src={project.data.image} 
-        alt={project.data.title} 
-        width={900} 
-        height={600} 
+      <Image
+        src={project.data.image}
+        alt={project.data.title}
+        width={900}
+        height={600}
+        loading="eager"
         class="w-full h-auto rounded-lg shadow-md"
       />
 
@@ -59,17 +89,25 @@ const getLogoPath = (techName: string) => {
           <span class="w-8 h-[2px] bg-indigo-500"></span> Technologies Used
         </h2>
         <div class="flex flex-wrap gap-4">
-          {project.data.technologies.map((tech: string) => {
-            const logo = getLogoPath(tech);
-            return (
-              <div class="flex items-center gap-2 px-3 py-2 rounded-xl border border-zinc-100 bg-zinc-50/50 shadow-sm">
-                {logo ? (
-                  <Image src={logo} alt={tech} class="w-6 h-6 object-contain" />
-                ) : null}
-                <span class="text-sm font-semibold text-zinc-700">{tech}</span>
-              </div>
-            );
-          })}
+          {
+            project.data.technologies.map((tech: string) => {
+              const logo = getLogoPath(tech);
+              return (
+                <div class="flex items-center gap-2 px-3 py-2 rounded-xl border border-zinc-100 bg-zinc-50/50 shadow-sm">
+                  {logo ? (
+                    <Image
+                      src={logo}
+                      alt={tech}
+                      class="w-6 h-6 object-contain"
+                    />
+                  ) : null}
+                  <span class="text-sm font-semibold text-zinc-700">
+                    {tech}
+                  </span>
+                </div>
+              );
+            })
+          }
         </div>
       </section>
 
@@ -80,41 +118,45 @@ const getLogoPath = (techName: string) => {
         <Content />
       </section>
 
-      {project.data.github && (
-        <section>
-          <h2 class="text-2xl font-bold text-zinc-900 mb-6 flex items-center gap-3">
-            <span class="w-8 h-[2px] bg-indigo-500"></span> Source Code
-          </h2>
-          <a 
-            href={project.data.github} 
-            target="_blank" 
-            class="inline-flex items-center gap-3 px-6 py-3 bg-zinc-900 text-white text-lg font-semibold rounded-lg hover:bg-indigo-600 transition-all shadow-md active:scale-95"
-            title="View project on GitHub"
-          >
-            <GithubIcon class="w-6 h-6" />
-            View on GitHub
-          </a>
-        </section>
-      )}
+      {
+        project.data.github && (
+          <section>
+            <h2 class="text-2xl font-bold text-zinc-900 mb-6 flex items-center gap-3">
+              <span class="w-8 h-[2px] bg-indigo-500" /> Source Code
+            </h2>
+            <a
+              href={project.data.github}
+              target="_blank"
+              class="inline-flex items-center gap-3 px-6 py-3 bg-zinc-900 text-white text-lg font-semibold rounded-lg hover:bg-indigo-600 transition-all shadow-md active:scale-95"
+              title="View project on GitHub"
+            >
+              <GithubIcon class="w-6 h-6" />
+              View on GitHub
+            </a>
+          </section>
+        )
+      }
 
-      {project.data.demo && (
-        <section>
-          <h2 class="text-2xl font-bold text-zinc-900 mb-6 flex items-center gap-3">
-            <span class="w-8 h-[2px] bg-indigo-500"></span> Live Demo / Video
-          </h2>
-          <div class="relative w-full overflow-hidden rounded-lg shadow-md aspect-video">
-            <iframe 
-              class="absolute top-0 left-0 w-full h-full"
-              src={project.data.demo.replace('watch?v=', 'embed/')} 
-              frameborder="0" 
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-              allowfullscreen
-              title={`${project.data.title} Demo`}
-            ></iframe>
-          </div>
-        </section>
-      )}
-
+      {
+        project.data.demo && (
+          <section>
+            <h2 class="text-2xl font-bold text-zinc-900 mb-6 flex items-center gap-3">
+              <span class="w-8 h-[2px] bg-indigo-500" /> Live Demo / Video
+            </h2>
+            <div class="relative w-full overflow-hidden rounded-lg shadow-md aspect-video">
+              <iframe
+                class="absolute top-0 left-0 w-full h-full"
+                src={project.data.demo.replace("watch?v=", "embed/")}
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen
+                loading="lazy"
+                title={`${project.data.title} Demo`}
+              />
+            </div>
+          </section>
+        )
+      }
     </article>
   </div>
 </Layout>

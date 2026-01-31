@@ -49,6 +49,7 @@ const { name, title, phone, email, cvPdfUrl, github, linkedin } = Astro.props;
                 target="_blank"
                 class="text-zinc-500 hover:text-black transition-colors"
                 title="GitHub"
+                aria-label="Visit my GitHub profile"
             >
                 <GithubIcon class="w-7 h-7" />
             </a>
@@ -57,6 +58,7 @@ const { name, title, phone, email, cvPdfUrl, github, linkedin } = Astro.props;
                 target="_blank"
                 class="text-zinc-500 hover:text-[#0077B5] transition-colors"
                 title="LinkedIn"
+                aria-label="Visit my LinkedIn profile"
             >
                 <LinkedinIcon class="w-7 h-7" />
             </a>
@@ -64,6 +66,7 @@ const { name, title, phone, email, cvPdfUrl, github, linkedin } = Astro.props;
                 href={`mailto:${email}`}
                 class="text-zinc-500 hover:text-indigo-500 transition-colors"
                 title="Email"
+                aria-label="Send me an email"
             >
                 <MailIcon class="w-7 h-7" />
             </a>

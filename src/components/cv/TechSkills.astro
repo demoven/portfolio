@@ -1,7 +1,7 @@
 ---
 // Component for displaying tech skills with logos
 import { Image } from "astro:assets";
-import type { TechSkill } from "../utils/techLogos";
+import type { TechSkill } from "../../utils/techLogos";
 
 interface Props {
     skills: TechSkill[];
@@ -18,7 +18,12 @@ const { skills } = Astro.props;
         {
             skills.map((skill) => (
                 <div class="flex items-center gap-2 px-3 py-1.5 rounded-full border border-zinc-100 bg-zinc-50/50 shadow-sm hover:border-indigo-200 hover:bg-white transition-all">
-                    <Image src={skill.logo} alt={skill.name} class="w-4 h-4" />
+                    <Image
+                        src={skill.logo}
+                        alt={skill.name}
+                        class="w-4 h-4"
+                        loading="eager"
+                    />
                     <span class="text-xs font-semibold text-zinc-700">
                         {skill.name}
                     </span>
