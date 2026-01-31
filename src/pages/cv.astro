@@ -1,322 +1,42 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import GithubIcon from '../components/icons/social/GithubIcon.astro';
-import LinkedinIcon from '../components/icons/social/LinkedinIcon.astro';
-import MailIcon from '../components/icons/social/MailIcon.astro';
-import { Image } from 'astro:assets';
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/cv/Header.astro";
+import TechSkills from "../components/cv/TechSkills.astro";
+import Languages from "../components/cv/Languages.astro";
+import Interests from "../components/cv/Interests.astro";
+import Internships from "../components/cv/Internships.astro";
+import Education from "../components/cv/Education.astro";
 
-// Tech logos
-import AngularLogo from '../assets/tech/angularIcon.svg';
-import AndroidStudioIcon from '../assets/tech/androidStudioIcon.svg';
-import CIcon from '../assets/tech/CIcon.svg';
-import CPPIcon from '../assets/tech/CPPIcon.svg';
-import CSS3Icon from '../assets/tech/CSS3Icon.svg';
-import DockerIcon from '../assets/tech/dockerIcon.svg';
-import FirebaseIcon from '../assets/tech/firebaseIcon.svg';
-import GitHubActionsIcon from '../assets/tech/githubActionsIcon.svg';
-import GitHubIcon from '../assets/tech/GitHubIcon.svg';
-import GitIcon from '../assets/tech/GitIcon.svg';
-import HTML5Icon from '../assets/tech/HTML5Icon.svg';
-import JavaIcon from '../assets/tech/JavaIcon.svg';
-import JavaScriptIcon from '../assets/tech/JavaScriptIcon.svg';
-import KotlinIcon from '../assets/tech/KotlinIcon.svg';
-import KubernetesIcon from '../assets/tech/KubernetesIcon.svg';
-import MongoDBIcon from '../assets/tech/MongoDBIcon.svg';
-import NodeJsIcon from '../assets/tech/Node.jsIcon.svg';
-import NumPyIcon from '../assets/tech/NumPyIcon.svg';
-import PandasIcon from '../assets/tech/PandasIcon.svg';
-import PythonIcon from '../assets/tech/PythonIcon.svg';
-import PyTorchIcon from '../assets/tech/PyTorchIcon.svg';
-import SciKitIcon from '../assets/tech/scikit-learnIcon.svg';
-import TensorFlowIcon from '../assets/tech/TensorFlowIcon.svg';
-import TypeScriptIcon from '../assets/tech/TypeScriptIcon.svg';
-
-const skills = [
-  { name: 'Angular', logo: AngularLogo },
-  { name: 'Android Studio', logo: AndroidStudioIcon },
-  { name: 'C', logo: CIcon },
-  { name: 'C++', logo: CPPIcon },
-  { name: 'CSS3', logo: CSS3Icon },
-  { name: 'Docker', logo: DockerIcon },
-  { name: 'Firebase', logo: FirebaseIcon },
-  { name: 'GitHub Actions', logo: GitHubActionsIcon },
-  { name: 'Git', logo: GitIcon },
-  { name: 'GitHub', logo: GitHubIcon },
-  { name: 'HTML5', logo: HTML5Icon },
-  { name: 'Java', logo: JavaIcon },
-  { name: 'JavaScript', logo: JavaScriptIcon },
-  { name: 'Kotlin', logo: KotlinIcon },
-  { name: 'Kubernetes', logo: KubernetesIcon },
-  { name: 'MongoDB', logo: MongoDBIcon },
-  { name: 'Node.js', logo: NodeJsIcon },
-  { name: 'NumPy', logo: NumPyIcon },
-  { name: 'Pandas', logo: PandasIcon },
-  { name: 'Python', logo: PythonIcon },
-  { name: 'PyTorch', logo: PyTorchIcon },
-  { name: 'scikit-learn', logo: SciKitIcon },
-  { name: 'TensorFlow', logo: TensorFlowIcon },
-  { name: 'TypeScript', logo: TypeScriptIcon },
-];
+// Import data
+import { techSkills } from "../utils/techLogos";
+import {
+  personalInfo,
+  languages,
+  interests,
+  internships,
+  education,
+} from "../data/cvData";
 ---
 
 <Layout title="CV | Théo Fernando">
   <div class="max-w-4xl mx-auto space-y-12">
-    
-    <header class="border-b border-zinc-200 pb-8 flex flex-col md:flex-row justify-between items-center md:items-end gap-6">
-      <div class="text-center md:text-left">
-        <h1 class="text-4xl font-bold text-zinc-900 tracking-tight">Théo Fernando</h1>
-        <p class="text-xl text-indigo-600 font-medium mt-1">Software Engineering Student</p>
-		<p class="text-sm text-zinc-500 mt-2 flex items-center justify-center md:justify-start gap-2">
-          <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
-          +33 7 83 07 99 38
-        </p>
-      </div>
+    <Header {...personalInfo} />
 
-      <div class="flex flex-col items-center md:items-end gap-4">
-        <a 
-          href="/CV_En_Théo_Fernando.pdf" 
-          download 
-          class="flex items-center gap-2 px-4 py-2 bg-zinc-900 text-white text-sm font-bold rounded-lg hover:bg-indigo-600 transition-all shadow-lg hover:shadow-indigo-200 active:scale-95"
-        >
-          <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
-          Download PDF
-        </a>
-
-        <div class="flex gap-5 items-center">
-          <a href="https://github.com/demoven" target="_blank" class="text-zinc-500 hover:text-black transition-colors" title="GitHub">
-            <GithubIcon class="w-7 h-7" />
-          </a>
-          <a href="https://linkedin.com/in/théo-fernando" target="_blank" class="text-zinc-500 hover:text-[#0077B5] transition-colors" title="LinkedIn">
-            <LinkedinIcon class="w-7 h-7" />
-          </a>
-          <a href="mailto:theofernando83@gmail.com" class="text-zinc-500 hover:text-indigo-500 transition-colors" title="Email">
-            <MailIcon class="w-7 h-7" />
-          </a>
-        </div>
-      </div>
-    </header>
-
-    <section>
-      <h2 class="text-xs font-bold uppercase tracking-[0.2em] text-zinc-400 mb-6">Technologies & Tools</h2>
-      <div class="flex flex-wrap gap-3">
-        {skills.map(skill => (
-          <div class="flex items-center gap-2 px-3 py-1.5 rounded-full border border-zinc-100 bg-zinc-50/50 shadow-sm hover:border-indigo-200 hover:bg-white transition-all">
-            <Image src={skill.logo} alt={skill.name} class="w-4 h-4" />
-            <span class="text-xs font-semibold text-zinc-700">{skill.name}</span>
-          </div>
-        ))}
-      </div>
-    </section>
+    <TechSkills skills={techSkills} />
 
     <hr class="border-zinc-100" />
 
     <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
-      
       <aside class="space-y-8">
-        <section>
-          <h2 class="text-xs font-bold uppercase tracking-[0.2em] text-zinc-400 mb-6">Languages</h2>
-          <div class="space-y-4">
-            <div class="flex flex-col">
-              <span class="font-bold text-zinc-800 text-sm">French</span>
-              <span class="text-xs text-zinc-500">Native</span>
-              <div class="w-full bg-zinc-100 h-1.5 mt-2 rounded-full overflow-hidden">
-                <div class="bg-indigo-500 h-full w-[100%]"></div>
-              </div>
-            </div>
-            <div class="flex flex-col">
-              <span class="font-bold text-zinc-800 text-sm">English</span>
-              <span class="text-xs text-zinc-500">Professional Proficiency (B2)</span>
-              <div class="w-full bg-zinc-100 h-1.5 mt-2 rounded-full overflow-hidden">
-                <div class="bg-indigo-400 h-full w-[75%]"></div>
-              </div>
-            </div>
-          </div>
-        </section>
-		<section>
-          <h2 class="text-xs font-bold uppercase tracking-[0.2em] text-zinc-400 mb-6 md:text-left">Interests</h2>
-          <div class="space-y-6">
-            <div class="flex items-start gap-3">
-              <div class="p-2 bg-zinc-50 rounded-lg text-zinc-500">
-                <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.7 5.3c.3.4.8.5 1.3.3l.5-.3c.4-.2.6-.7.5-1.2z"></path></svg>
-              </div>
-              <div>
-                <h3 class="text-sm font-bold text-zinc-800">Travel</h3>
-                <p class="text-xs text-zinc-500 leading-relaxed">Explored 10+ countries across North America and Europe</p>
-              </div>
-            </div>
-
-            <div class="flex items-start gap-3">
-              <div class="p-2 bg-zinc-50 rounded-lg text-zinc-500">
-                <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 13.87A4 4 0 0 1 7.41 6.54H7.5a2 2 0 0 1 4.6 0h.1a4 4 0 0 1 1.39 7.32"></path><path d="M8 15h2a1 1 0 1 1 0 2H8a1 1 0 1 1 0-2Z"></path><path d="M16 15h2a1 1 0 1 1 0 2h-2a1 1 0 1 1 0-2Z"></path><path d="M9 19v2"></path><path d="M15 19v2"></path><path d="M5 20h14a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2Z"></path></svg>
-              </div>
-              <div>
-                <h3 class="text-sm font-bold text-zinc-800">Cooking</h3>
-                <p class="text-xs text-zinc-500 leading-relaxed">Passion for culinary arts and international flavors</p>
-              </div>
-            </div>
-
-            <div class="flex items-start gap-3">
-              <div class="p-2 bg-zinc-50 rounded-lg text-zinc-500">
-                <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5l12-2v13"></path><circle cx="6" cy="18" r="3"></circle><circle cx="18" cy="16" r="3"></circle></svg>
-              </div>
-              <div>
-                <h3 class="text-sm font-bold text-zinc-800">Music</h3>
-                <p class="text-xs text-zinc-500 leading-relaxed">10 years of piano training at the conservatory</p>
-              </div>
-            </div>
-          </div>
-        </section>
+        <Languages languages={languages} />
+        <Interests interests={interests} />
       </aside>
 
-      <div class="md:col-span-2 space-y-12 border-l border-zinc-100 md:pl-10 relative">
-        
-        <section>
-          <h2 class="text-2xl font-bold text-zinc-900 mb-8 flex items-center gap-3">
-            <span class="w-8 h-[2px] bg-indigo-500"></span> Internships
-          </h2>
-          <div class="space-y-10">
-            <div class="relative group">
-              <h3 class="text-lg font-bold text-zinc-800 group-hover:text-indigo-600 transition-colors italic">
-                Web Developer Intern
-              </h3>
-              
-              <p class="text-indigo-500 text-sm font-semibold">
-                City of La Seyne-sur-Mer (France) | Jun. 2025 - Aug. 2025
-              </p>
-
-              <p class="mt-2 text-xs font-medium text-zinc-500 uppercase tracking-wider">
-                Microservices Architecture
-              </p>
-
-              <ul class="mt-4 space-y-3">
-                <li class="flex gap-3 text-sm text-zinc-600 leading-relaxed">
-                  <span class="text-indigo-500 mt-1.5 leading-none">•</span>
-                  <span>
-                    Designed and developed a real-time queue management system using Angular and Node.js.
-                  </span>
-                </li>
-                <li class="flex gap-3 text-sm text-zinc-600 leading-relaxed">
-                  <span class="text-indigo-500 mt-1.5 leading-none">•</span>
-                  <span>
-                    Integrated the "Publik" API to synchronize appointment data and reduce user wait times.
-                  </span>
-                </li>
-                <li class="flex gap-3 text-sm text-zinc-600 leading-relaxed">
-                  <span class="text-indigo-500 mt-1.5 leading-none">•</span>
-                  <span>
-                    Collaborated with the municipal team to define requirements and improve the user interface.
-                  </span>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </section>
-
-        <section>
-          <h2 class="text-2xl font-bold text-zinc-900 mb-8 flex items-center gap-3">
-            <span class="w-8 h-[2px] bg-indigo-500"></span> Education
-          </h2>
-          
-          <div class="space-y-8">
-            <div class="flex justify-between items-start gap-4 group">
-				<div class="space-y-3">
-					<div>
-						<h3 class="font-bold text-zinc-900 text-lg leading-tight group-hover:text-indigo-600 transition-colors">
-							Double degree (Master's Degree in Computer Science)
-						</h3>
-						<p class="text-sm font-semibold text-indigo-500">
-							Université du Québec à Chicoutimi (UQAC) | Canada
-						</p>
-					</div>
-
-					<div class="bg-zinc-50 p-4 rounded-xl space-y-3">
-						<div class="flex items-center gap-2">
-							<span class="relative flex h-2 w-2">
-							<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
-							<span class="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
-							</span>
-							<span class="text-xs font-bold uppercase tracking-wider text-zinc-500">Winter 2026 (Current)</span>
-						</div>
-
-						<div class="flex flex-wrap gap-2">
-							<span class="px-2 py-1 bg-white border border-zinc-200 rounded text-[11px] text-zinc-600 font-medium">
-							<strong class="text-zinc-900">Advanced Algorithms</strong> (C++)
-							</span>
-							<span class="px-2 py-1 bg-white border border-zinc-200 rounded text-[11px] text-zinc-600 font-medium">
-							<strong class="text-zinc-900">Machine Learning</strong> (Python)
-							</span>
-							<span class="px-2 py-1 bg-white border border-zinc-200 rounded text-[11px] text-zinc-600 font-medium">
-							<strong class="text-zinc-900">3D & VR</strong> (Unreal Engine)
-							</span>
-							<span class="px-2 py-1 bg-white border border-zinc-200 rounded text-[11px] text-zinc-600 font-medium">
-							<strong class="text-zinc-900">OOP</strong>
-							</span>
-						</div>
-					</div>
-					<div class="bg-zinc-50 p-4 rounded-xl space-y-3">
-						<div class="flex items-center gap-2">
-							<span class="relative flex h-2 w-2">
-							<span class="absolute inline-flex h-full w-full rounded-full bg-gray-400 opacity-75"></span>
-							<span class="relative inline-flex rounded-full h-2 w-2 bg-gray-500"></span>
-							</span>
-							<span class="text-xs font-bold uppercase tracking-wider text-zinc-500">Fall 2025</span>
-						</div>
-
-						<div class="flex flex-wrap gap-2">
-							<span class="px-2 py-1 bg-white border border-zinc-200 rounded text-[11px] text-zinc-600 font-medium">
-							<strong class="text-zinc-900"> Cloud Computing </strong> (Microservices Architecture, Docker, Kubernetes)
-							</span>
-							<span class="px-2 py-1 bg-white border border-zinc-200 rounded text-[11px] text-zinc-600 font-medium">
-							<strong class="text-zinc-900">Software Engineering</strong>
-							</span>
-							<span class="px-2 py-1 bg-white border border-zinc-200 rounded text-[11px] text-zinc-600 font-medium">
-							<strong class="text-zinc-900"> Android Mobile Development</strong> (Kotlin and Jetpack Compose)
-							</span>
-							<span class="px-2 py-1 bg-white border border-zinc-200 rounded text-[11px] text-zinc-600 font-medium">
-							<strong class="text-zinc-900"> Project Management</strong> (Agile Methodologies)
-							</span>
-						</div>
-					</div>
-				</div>
-				<span class="text-sm font-bold text-zinc-400 bg-zinc-100 px-3 py-1 rounded-full whitespace-nowrap">
-					Aug.2025 - 2027
-				</span>
-			</div>
-
-			<div class="flex justify-between items-start gap-4 group">
-				<div class="space-y-3">
-					<div>
-						<h3 class="font-bold text-zinc-900 text-lg leading-tight group-hover:text-indigo-600 transition-colors">
-							ERASMUS Exchange semester
-						</h3>
-						<p class="text-sm font-semibold text-indigo-500">
-							Windesheim | Netherlandss
-						</p>
-					</div>
-				</div>
-				<span class="text-sm font-bold text-zinc-400 bg-zinc-100 px-3 py-1 rounded-full whitespace-nowrap">
-					Sept. 2024 - Jan. 2025
-				</span>
-			</div>
-
-            <div class="flex justify-between items-start gap-4 group">
-				<div class="space-y-3">
-					<div>
-						<h3 class="font-bold text-zinc-900 text-lg leading-tight group-hover:text-indigo-600 transition-colors">
-							Engineering Degree in Software Engineering
-						</h3>
-						<p class="text-sm font-semibold text-indigo-500">
-							ISEN Méditerranée | France
-						</p>
-					</div>
-				</div>
-				<span class="text-sm font-bold text-zinc-400 bg-zinc-100 px-3 py-1 rounded-full whitespace-nowrap">
-					Sept. 2021 - 2027
-				</span>
-			</div>
-          </div>
-        </section>
-        
+      <div
+        class="md:col-span-2 space-y-12 border-l border-zinc-100 md:pl-10 relative"
+      >
+        <Internships internships={internships} />
+        <Education educationList={education} />
       </div>
     </div>
   </div>

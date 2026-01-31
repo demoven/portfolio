@@ -1,0 +1,79 @@
+---
+// Component for displaying education history
+import type { Education } from "../../data/cvData";
+
+interface Props {
+    educationList: Education[];
+}
+
+const { educationList } = Astro.props;
+---
+
+<section>
+    <h2 class="text-2xl font-bold text-zinc-900 mb-8 flex items-center gap-3">
+        <span class="w-8 h-[2px] bg-indigo-500"></span> Education
+    </h2>
+
+    <div class="space-y-8">
+        {
+            educationList.map((edu) => (
+                <div class="flex justify-between items-start gap-4 group">
+                    <div class="space-y-3">
+                        <div>
+                            <h3 class="font-bold text-zinc-900 text-lg leading-tight group-hover:text-indigo-600 transition-colors">
+                                {edu.degree}
+                            </h3>
+                            <p class="text-sm font-semibold text-indigo-500">
+                                {edu.institution} | {edu.location}
+                            </p>
+                        </div>
+
+                        {edu.semesters && (
+                            <div class="space-y-3">
+                                {edu.semesters.map((semester) => (
+                                    <div class="bg-zinc-50 p-4 rounded-xl space-y-3">
+                                        <div class="flex items-center gap-2">
+                                            <span class="relative flex h-2 w-2">
+                                                {semester.isCurrent ? (
+                                                    <>
+                                                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75" />
+                                                        <span class="relative inline-flex rounded-full h-2 w-2 bg-green-500" />
+                                                    </>
+                                                ) : (
+                                                    <>
+                                                        <span class="absolute inline-flex h-full w-full rounded-full bg-gray-400 opacity-75" />
+                                                        <span class="relative inline-flex rounded-full h-2 w-2 bg-gray-500" />
+                                                    </>
+                                                )}
+                                            </span>
+                                            <span class="text-xs font-bold uppercase tracking-wider text-zinc-500">
+                                                {semester.name}{" "}
+                                                {semester.isCurrent &&
+                                                    "(Current)"}
+                                            </span>
+                                        </div>
+
+                                        <div class="flex flex-wrap gap-2">
+                                            {semester.courses.map((course) => (
+                                                <span class="px-2 py-1 bg-white border border-zinc-200 rounded text-[11px] text-zinc-600 font-medium">
+                                                    <strong class="text-zinc-900">
+                                                        {course.name}
+                                                    </strong>
+                                                    {course.details &&
+                                                        ` ${course.details}`}
+                                                </span>
+                                            ))}
+                                        </div>
+                                    </div>
+                                ))}
+                            </div>
+                        )}
+                    </div>
+                    <span class="text-sm font-bold text-zinc-400 bg-zinc-100 px-3 py-1 rounded-full whitespace-nowrap">
+                        {edu.period}
+                    </span>
+                </div>
+            ))
+        }
+    </div>
+</section>

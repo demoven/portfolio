@@ -1,0 +1,34 @@
+---
+// Component for displaying language proficiency
+import type { Language } from "../../data/cvData";
+
+interface Props {
+    languages: Language[];
+}
+
+const { languages } = Astro.props;
+---
+
+<section>
+    <h2 class="text-xs font-bold uppercase tracking-[0.2em] text-zinc-400 mb-6">
+        Languages
+    </h2>
+    <div class="space-y-4">
+        {
+            languages.map((language) => (
+                <div class="flex flex-col">
+                    <span class="font-bold text-zinc-800 text-sm">
+                        {language.name}
+                    </span>
+                    <span class="text-xs text-zinc-500">{language.level}</span>
+                    <div class="w-full bg-zinc-100 h-1.5 mt-2 rounded-full overflow-hidden">
+                        <div
+                            class={`h-full ${language.percentage === 100 ? "bg-indigo-500" : "bg-indigo-400"}`}
+                            style={`width: ${language.percentage}%`}
+                        />
+                    </div>
+                </div>
+            ))
+        }
+    </div>
+</section>
