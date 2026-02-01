@@ -7,6 +7,7 @@ const projects = defineCollection({
     date: z.coerce.date(), // Transforme automatiquement la string du MD en objet Date
     technologies: z.array(z.string()),
     image: z.string(),
+    gallery: z.array(z.string()).optional(), // Images supplémentaires pour la galerie
     github: z.string().url().optional(),
     demo: z.string().url().optional(),
   }),
