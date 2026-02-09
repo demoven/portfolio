@@ -1,8 +1,8 @@
 ---
-title: "Real-time Queue Management System"
+title: "Real-time Queue Management System (Internship)"
 date: "2025-08-01"
-technologies: ["Angular", "Node.js", "MongoDB", "Microservices", "PostgresSQL"]
-image: "/src/assets/projects/accueil.png" # Chemin vers l'image du projet
+technologies: ["Angular", "Node.js", "Microservices", "PostgresSQL"]
+image: "/src/assets/projects/Seyne.jpg" # Chemin vers l'image du projet
 
 ---
 

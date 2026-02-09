@@ -9,6 +9,7 @@ gallery:
   - "/src/assets/projects/Library-details.png"
   - "/src/assets/projects/Library-form.png"
 github: "https://github.com/demoven/use-case-library"
+demo: "https://www.youtube.com/watch?v=BMeKeDjzmcY"
 ---
 
 **Use Case Library** is a custom WordPress plugin developed during my academic exchange at **Windesheim University** in the Netherlands. This project was a collaborative effort within an international team of four—consisting of two Dutch students, one French peer, and myself—working directly for our client, **Rob Van De Star**. Together, we designed and implemented a professional solution to manage and showcase technical use cases for the Windesheim Technology Radar.
