@@ -11,6 +11,18 @@ interface Props {
 
 const { project, index } = Astro.props;
 
+// Import all project images
+const allProjectImages = import.meta.glob<{ default: ImageMetadata }>(
+    "/src/assets/projects/**/*.{png,jpg,jpeg,webp,gif}",
+    { eager: true },
+);
+
+// Get the image for this project
+const imagePath = project.data.image.startsWith("/")
+    ? project.data.image
+    : `/${project.data.image}`;
+const projectImage = allProjectImages[imagePath]?.default;
+
 // Only load eagerly for the first 4 projects (above the fold)
 const loadingStrategy = index < 3 ? "eager" : "lazy";
 ---
@@ -20,14 +32,18 @@ const loadingStrategy = index < 3 ? "eager" : "lazy";
     class="block group rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 bg-white border border-zinc-100"
 >
     <div class="relative overflow-hidden">
-        <Image
-            src={project.data.image}
-            alt={project.data.title}
-            loading={loadingStrategy}
-            width={600}
-            height={400}
-            class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
-        />
+        {
+            projectImage && (
+                <Image
+                    src={projectImage}
+                    alt={project.data.title}
+                    loading={loadingStrategy}
+                    width={600}
+                    height={400}
+                    class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
+                />
+            )
+        }
         <div
             class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"
         >
