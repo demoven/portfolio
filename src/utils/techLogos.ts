@@ -2,14 +2,14 @@
 import type { ImageMetadata } from 'astro';
 
 // Import all tech logos
-import AngularLogo from '../assets/tech/angularIcon.svg';
-import AndroidStudioIcon from '../assets/tech/androidStudioIcon.svg';
+import AngularLogo from '../assets/tech/AngularIcon.svg';
+import AndroidStudioIcon from '../assets/tech/AndroidStudioIcon.svg';
 import CIcon from '../assets/tech/CIcon.svg';
 import CPPIcon from '../assets/tech/CPPIcon.svg';
 import CSS3Icon from '../assets/tech/CSS3Icon.svg';
-import DockerIcon from '../assets/tech/dockerIcon.svg';
-import FirebaseIcon from '../assets/tech/firebaseIcon.svg';
-import GitHubActionsIcon from '../assets/tech/githubActionsIcon.svg';
+import DockerIcon from '../assets/tech/DockerIcon.svg';
+import FirebaseIcon from '../assets/tech/FirebaseIcon.svg';
+import GitHubActionsIcon from '../assets/tech/GithubActionsIcon.svg';
 import GitHubIcon from '../assets/tech/GitHubIcon.svg';
 import GitIcon from '../assets/tech/GitIcon.svg';
 import HTML5Icon from '../assets/tech/HTML5Icon.svg';
