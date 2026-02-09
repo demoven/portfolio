@@ -5,8 +5,6 @@ technologies: ["Kotlin", "Firebase", "AndroidStudio", "Compose"]
 image: "/src/assets/projects/Culibox.png" # Chemin vers l'image du projet
 gallery: 
   - "/src/assets/projects/Culibox.png"
-  - "/src/assets/projects/Culibox.png"
-  - "/src/assets/projects/Culibox.png"
 github: "https://github.com/demoven/Recipe_keeper"
 demo: "https://www.youtube.com/watch?v=PbkhyFYV0IQ" # Un lien YouTube pour la démo
 ---

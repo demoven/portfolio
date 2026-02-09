@@ -1,7 +1,7 @@
 ---
 title: "Real-time Queue Management System"
 date: "2025-08-01"
-technologies: ["Angular", "Node.js", "MongoDB", "Microservices"]
+technologies: ["Angular", "Node.js", "MongoDB", "Microservices", "PostgresSQL"]
 image: "/src/assets/projects/accueil.png" # Chemin vers l'image du projet
 
 ---

@@ -27,6 +27,11 @@ import SciKitIcon from '../assets/tech/scikit-learnIcon.svg';
 import TensorFlowIcon from '../assets/tech/TensorFlowIcon.svg';
 import TypeScriptIcon from '../assets/tech/TypeScriptIcon.svg';
 import ComposeIcon from '../assets/tech/ComposeIcon.svg';
+import AstroIcon from '../assets/tech/AstroIcon.svg';
+import PHPIcon from '../assets/tech/PHPIcon.svg';
+import WordPressIcon from '../assets/tech/WordPressIcon.svg';
+import PostgresSQLIcon from '../assets/tech/PostgresSQLIcon.svg';
+import MySQLIcon from '../assets/tech/MySQLIcon.svg';
 
 export interface TechSkill {
     name: string;
@@ -59,6 +64,11 @@ export const techSkills: TechSkill[] = [
     { name: 'TensorFlow', logo: TensorFlowIcon },
     { name: 'TypeScript', logo: TypeScriptIcon },
     { name: 'Compose', logo: ComposeIcon },
+    { name: 'Astro', logo: AstroIcon },
+    { name: 'PHP', logo: PHPIcon },
+    { name: 'WordPress', logo: WordPressIcon },
+    { name: 'PostgresSQL', logo: PostgresSQLIcon },
+    { name: 'MySQL', logo: MySQLIcon },
 ];
 
 // Utility function to get logo by tech name
