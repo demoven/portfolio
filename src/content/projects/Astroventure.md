@@ -11,6 +11,7 @@ gallery:
   - "/src/assets/projects/Astroventure/Astro_choice.png"
   - "/src/assets/projects/Astroventure/Astro_home.png"
   - "/src/assets/projects/Astroventure/Astro_levels.png"
+demo: "https://www.youtube.com/watch?v=7vRKBEk6WEQ"
 ---
 
 # 🚀 Astroventure – 2D Game Engine in C
