@@ -10,6 +10,7 @@ export interface Interest {
     title: string;
     description: string;
     iconPath: string;
+    countries?: { name: string; visits: number }[];
 }
 
 export interface Internship {
@@ -49,14 +50,27 @@ export const personalInfo = {
 
 export const languages: Language[] = [
     { name: 'French', level: 'Native', percentage: 100 },
-    { name: 'English', level: 'Professional Proficiency (B2)', percentage: 75 },
+    { name: 'English', level: 'Professional Proficiency (FCE B2)', percentage: 75 },
 ];
 
 export const interests: Interest[] = [
     {
         title: 'Travel',
-        description: 'Explored 10+ countries across North America and Europe',
+        description: 'Passionate traveler exploring diverse cultures across North America and Europe',
         iconPath: 'M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.7 5.3c.3.4.8.5 1.3.3l.5-.3c.4-.2.6-.7.5-1.2z',
+        countries: [
+            { name: 'USA', visits: 4 },
+            { name: 'Canada', visits: 2 },
+            { name: 'Ireland', visits: 2 },
+            { name: 'Scotland', visits: 1 },
+            { name: 'England', visits: 1 },
+            { name: 'Germany', visits: 1 },
+            { name: 'Czech Republic', visits: 1 },
+            { name: 'Spain', visits: 1 },
+            { name: 'Portugal', visits: 1 },
+            { name: 'Austria', visits: 1 },
+            { name: 'Netherlands', visits: 1 },
+        ],
     },
     {
         title: 'Cooking',

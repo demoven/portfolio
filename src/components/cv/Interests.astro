@@ -39,13 +39,27 @@ const { interests } = Astro.props;
                             )}
                         </svg>
                     </div>
-                    <div>
+                    <div class="flex-1">
                         <h3 class="text-sm font-bold text-zinc-800">
                             {interest.title}
                         </h3>
                         <p class="text-xs text-zinc-500 leading-relaxed">
                             {interest.description}
                         </p>
+                        {interest.countries && (
+                            <div class="flex flex-wrap gap-2 mt-3">
+                                {interest.countries.map((country) => (
+                                    <div class="inline-flex items-center gap-1.5 px-2.5 py-1 bg-gradient-to-br from-zinc-50 to-zinc-100 border border-zinc-200 rounded-full text-xs font-medium text-zinc-700 hover:shadow-sm transition-shadow">
+                                        <span>{country.name}</span>
+                                        {country.visits > 1 && (
+                                            <span class="text-zinc-500">
+                                                ({country.visits}x)
+                                            </span>
+                                        )}
+                                    </div>
+                                ))}
+                            </div>
+                        )}
                     </div>
                 </div>
             ))
