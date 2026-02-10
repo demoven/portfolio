@@ -2,12 +2,12 @@
 title: "Windesheim.tech Use Case Library"
 date: "2024-12-16"
 technologies: ["PHP", "WordPress", "MySQL"]
-image: "/src/assets/projects/Library.png" # Chemin vers l'image du projet
+image: "/src/assets/projects/Library/Library.png" # Chemin vers l'image du projet
 gallery: 
-  - "/src/assets/projects/Library.png"
-  - "/src/assets/projects/Library2.png"
-  - "/src/assets/projects/Library-details.png"
-  - "/src/assets/projects/Library-form.png"
+  - "/src/assets/projects/Library/Library.png"
+  - "/src/assets/projects/Library/Library2.png"
+  - "/src/assets/projects/Library/Library-details.png"
+  - "/src/assets/projects/Library/Library-form.png"
 github: "https://github.com/demoven/use-case-library"
 demo: "https://www.youtube.com/watch?v=BMeKeDjzmcY"
 ---
