@@ -17,10 +17,14 @@ gallery:
 
 **Winner of the "Garage Week" 2024 at ISEN Toulon.**
 
+---
+
 ### Project Overview
 Safetrix is an IoT solution designed to enhance worker safety in hazardous industrial environments. The project was developed during **Garage Week 2024**, an intensive **2-week innovation sprint** mandatory for all 3rd-year engineering students at ISEN Toulon, in partnership with **Veolia**.
 
 Our team secured **1st place out of 20 teams** (approx. 115 students) by delivering a fully functional prototype that prevents accidents in waste sorting centers.
+
+---
 
 ### 🛠 Technical Architecture & Prototype
 We went beyond the concept phase to build a physical, working ecosystem comprising three main layers:
@@ -38,10 +42,14 @@ We went beyond the concept phase to build a physical, working ecosystem comprisi
     * Developed a **Python application** to manage the system.
     * Allows the site manager to configure each zone and update the specific safety messages transmitted by the Raspberry Pis to the wristbands.
 
+---
+
 ### 🥇 Key Achievements
 * **Rank:** **1st Place** (Winning Team).
 * **Performance:** Successfully demonstrated a live working prototype to the jury.
 * **Client:** **Veolia** (Waste Management & Utility Services).
+
+---
 
 ### 👨‍💼 My Role: Project Manager
 As the **Project Manager** of the winning team, I led the development from the initial brief to the final technical demo. My responsibilities included:

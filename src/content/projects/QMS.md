@@ -10,6 +10,8 @@ image: "/src/assets/projects/Seyne.jpg" # Chemin vers l'image du projet
 
 During my internship at the **City Hall of La Seyne-sur-Mer**, I developed a custom digital queue management system to replace an outdated manual paper-ticket process. This system modernizes the reception and civil status services by providing real-time tracking of user flow.
 
+---
+
 ## 🏗️ Architecture: Microservices Approach
 
 The application was built using a **microservices-oriented architecture** to ensure modularity and reliability:
@@ -19,11 +21,15 @@ The application was built using a **microservices-oriented architecture** to ens
 * **Publik API Service**: An independent layer responsible for fetching and filtering external appointment data.
 * **Real-time WebSocket Server**: Manages instant communication between all clients using **Socket.IO**.
 
+---
+
 ## 🛠️ Technical Stack
 * **Frontend**: Built with **Angular** for high-performance, interactive user interfaces.
 * **Backend**: Developed with **Node.js** and **Express** using an asynchronous architecture.
 * **Database**: **PostgreSQL** for structured storage of appointments and service logs.
 * **Tools**: Development via **VS Code**, API testing with **Postman**, and server management with **Putty**.
+
+---
 
 ## ✨ Key Features
 * **Automated Sync**: Real-time retrieval of appointments via the **Publik API**.
@@ -31,6 +37,8 @@ The application was built using a **microservices-oriented architecture** to ens
 * **Staff Dashboards**: Interactive interfaces for 9 specific desks to call the next user with one click.
 * **Public Display**: A "Kiosk mode" interface on public screens with synchronized audio alerts.
 * **Physical Ticketing**: Generation of physical tickets via local scripts and thermal printers.
+
+---
 
 ## 📈 Impact & Results
 1.  **Reduced Wait Times**: Optimized user circulation and better coordination between services.
