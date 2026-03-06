@@ -20,10 +20,10 @@ import background from '../assets/background.svg';
       
       <div class="flex-1 text-center md:text-left">
         <h1 class="text-5xl md:text-7xl font-extrabold tracking-tight text-gray-900 mb-6">
-          Hi! I'm <span class="bg-gradient-to-r from-blue-600 to-purple-500 bg-clip-text text-transparent">Théo Fernando</span>
+          <span data-i18n="hero_greeting">Hi! I'm</span> <span class="bg-gradient-to-r from-blue-600 to-purple-500 bg-clip-text text-transparent">Théo Fernando</span>
         </h1>
         
-        <p class="text-lg md:text-xl text-gray-600 mb-10 max-w-2xl leading-relaxed">
+        <p class="text-lg md:text-xl text-gray-600 mb-10 max-w-2xl leading-relaxed" data-i18n-html="hero_description">
           I am deeply passionate about <strong>Software Engineering</strong> and thrive in <strong>international environments</strong>. 
           I love building scalable solutions and collaborating with diverse teams across the globe.
         </p>
@@ -32,12 +32,14 @@ import background from '../assets/background.svg';
           <a 
             href="/cv" 
             class="px-8 py-4 bg-gray-900 text-white rounded-xl font-semibold shadow-lg hover:bg-gray-800 hover:-translate-y-1 transition-all"
+            data-i18n="hero_cta_about"
           >
             More about me
           </a>
           <a 
             href="/projects" 
             class="px-8 py-4 border-2 border-gray-900 text-gray-900 rounded-xl font-semibold hover:bg-gray-100 hover:-translate-y-1 transition-all"
+            data-i18n="hero_cta_projects"
           >
             My Projects
           </a>

@@ -1,10 +1,12 @@
 ---
 title: "Real-time Queue Management System (Internship)"
+titleFr: "Système de Gestion de File d'Attente en Temps Réel (Stage)"
 date: "2025-08-01"
 technologies: ["Angular", "Node.js", "Microservices", "PostgresSQL"]
-image: "/src/assets/projects/Seyne.jpg" # Chemin vers l'image du projet
-
+image: "/src/assets/projects/Seyne.jpg"
 ---
+
+<div data-lang-content="en">
 
 ## 🚀 Project Overview
 
@@ -44,3 +46,48 @@ The application was built using a **microservices-oriented architecture** to ens
 1.  **Reduced Wait Times**: Optimized user circulation and better coordination between services.
 2.  **Operational Efficiency**: Elimination of manual logbooks and reduced staff fatigue.
 3.  **User Satisfaction**: A modernized and professional image for the City Hall's public reception.
+
+</div>
+
+<div data-lang-content="fr">
+
+## 🚀 Présentation du projet
+
+Durant mon stage à la **Mairie de La Seyne-sur-Mer**, j'ai développé un système de gestion de file d'attente numérique personnalisé pour remplacer un processus manuel obsolète par tickets papier. Ce système modernise les services d'accueil et d'état civil en permettant le suivi en temps réel du flux des usagers.
+
+---
+
+## 🏗️ Architecture : Approche Microservices
+
+L'application a été construite selon une **architecture orientée microservices** pour assurer modularité et fiabilité :
+
+* **Auth Manager** : Gère la connexion sécurisée et vérifie les identifiants via le **LDAP** municipal.
+* **Ticket Manager** : Service dédié gérant le cycle de vie et l'état de chaque entrée en file.
+* **Service API Publik** : Couche indépendante responsable de la récupération et du filtrage des données de rendez-vous externes.
+* **Serveur WebSocket temps réel** : Gère la communication instantanée entre tous les clients via **Socket.IO**.
+
+---
+
+## 🛠️ Stack technique
+* **Frontend** : Développé avec **Angular** pour des interfaces utilisateur interactives et performantes.
+* **Backend** : Construit avec **Node.js** et **Express** selon une architecture asynchrone.
+* **Base de données** : **PostgreSQL** pour le stockage structuré des rendez-vous et journaux de service.
+* **Outils** : Développement via **VS Code**, tests API avec **Postman**, gestion serveur avec **Putty**.
+
+---
+
+## ✨ Fonctionnalités clés
+* **Synchronisation automatique** : Récupération en temps réel des rendez-vous via l'**API Publik**.
+* **Logique intelligente** : Détection automatique des absences via des **tâches Cron** qui marquent les usagers absents après 5 minutes de retard.
+* **Tableaux de bord agents** : Interfaces interactives pour 9 guichets spécifiques permettant d'appeler l'usager suivant en un clic.
+* **Affichage public** : Interface « Mode Kiosque » sur les écrans publics avec alertes sonores synchronisées.
+* **Billetterie physique** : Génération de tickets physiques via des scripts locaux et des imprimantes thermiques.
+
+---
+
+## 📈 Impact & Résultats
+1.  **Réduction des temps d'attente** : Optimisation de la circulation des usagers et meilleure coordination entre services.
+2.  **Efficacité opérationnelle** : Suppression des registres manuels et réduction de la fatigue du personnel.
+3.  **Satisfaction des usagers** : Une image modernisée et professionnelle pour l'accueil public de la mairie.
+
+</div>

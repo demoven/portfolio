@@ -10,6 +10,8 @@ interface Props {
 }
 
 const { project, index } = Astro.props;
+const titleEn = project.data.title;
+const titleFr = (project.data as any).titleFr ?? project.data.title;
 
 // Import all project images
 const allProjectImages = import.meta.glob<{ default: ImageMetadata }>(
@@ -63,8 +65,10 @@ const loadingStrategy = index < 3 ? "eager" : "lazy";
     <div class="p-6">
         <h2
             class="text-xl font-bold text-zinc-900 mb-4 group-hover:text-indigo-600 transition-colors"
+            data-title-en={titleEn}
+            data-title-fr={titleFr}
         >
-            {project.data.title}
+            {titleEn}
         </h2>
 
         <div class="flex flex-wrap gap-3">

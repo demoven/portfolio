@@ -19,3 +19,30 @@
     color: #6366f1;
     /* indigo-500 */
 }
+
+/* Espacement des séparateurs --- dans les fichiers Markdown */
+.prose hr {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    border-color: #a1a1aa; /* zinc-400 */
+}
+
+/* Titres ## dans les fichiers Markdown */
+.prose h2 {
+    font-size: 1.05rem;
+    font-weight: 800;
+    color: #18181b; /* zinc-900 */
+    margin-top: 2rem;
+    margin-bottom: 0.75rem;
+    padding-left: 0.75rem;
+    border-left: 3px solid #6366f1; /* indigo-500 */
+}
+
+/* Titres ### dans les fichiers Markdown */
+.prose h3 {
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: #3730a3; /* indigo-800 */
+    margin-top: 1.25rem;
+    margin-bottom: 0.5rem;
+}

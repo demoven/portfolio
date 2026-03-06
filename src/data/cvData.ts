@@ -40,10 +40,9 @@ export interface Education {
 
 export const personalInfo = {
     name: 'Théo Fernando',
-    title: 'Software Engineering Student',
     phone: '+33 7 83 07 99 38',
     email: 'theofernando83@gmail.com',
-    cvPdfUrl: '/CV_En_Théo_Fernando.pdf',
+    cvPdfUrl: '/CV_En_Theo_Fernando.pdf',
     github: 'https://github.com/demoven',
     linkedin: 'https://linkedin.com/in/théo-fernando',
 };

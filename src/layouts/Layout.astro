@@ -1,6 +1,11 @@
 ---
 import "../styles/global.css";
 import Navbar from "../components/Navbar.astro";
+
+interface Props {
+  title?: string;
+}
+const { title = "Théo Fernando" } = Astro.props;
 ---
 
 <!doctype html>
@@ -11,13 +16,24 @@ import Navbar from "../components/Navbar.astro";
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<link rel="icon" href="/favicon.ico" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Théo Fernando</title>
+		<title>{title}</title>
+		{/* Anti-flash: apply stored lang before first paint */}
+		<script is:inline>
+			(function () {
+				var lang = localStorage.getItem('portfolio_lang') || 'en';
+				document.documentElement.setAttribute('lang', lang);
+			})();
+		</script>
 	</head>
 	<body class="bg-zinc-50 text-zinc-900 antialiased min-h-screen">
 		<Navbar />
 		<main class="max-w-5xl mx-auto px-4 py-12">
 			<slot />
 		</main>
+		<script>
+			import { initI18n } from '../i18n/i18nClient';
+			initI18n();
+		</script>
 	</body>
 </html>
 

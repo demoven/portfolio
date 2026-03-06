@@ -7,10 +7,31 @@ interface Props {
 }
 
 const { educationList } = Astro.props;
+
+// i18n key maps for education
+const degreeKeyMap: Record<string, string> = {
+    "Double degree (Master's Degree in Computer Science)": 'edu_degree_uqac',
+    'ERASMUS Exchange semester': 'edu_degree_erasmus',
+    'Engineering Degree in Software Engineering': 'edu_degree_isen',
+};
+const semesterKeyMap: Record<string, string> = {
+    'Winter 2026': 'edu_semester_winter2026',
+    'Fall 2025': 'edu_semester_fall2025',
+};
+const courseKeyMap: Record<string, string> = {
+    'Advanced Algorithms': 'edu_course_algos',
+    'Machine Learning': 'edu_course_ml',
+    '3D & VR': 'edu_course_vr',
+    'OOP': 'edu_course_oop',
+    'Cloud Computing': 'edu_course_cloud',
+    'Software Engineering': 'edu_course_se',
+    'Android Mobile Development': 'edu_course_android',
+    'Project Management': 'edu_course_pm',
+};
 ---
 
 <section>
-    <h2 class="text-2xl font-bold text-zinc-900 mb-8 flex items-center gap-3">
+    <h2 class="text-2xl font-bold text-zinc-900 mb-8 flex items-center gap-3" data-i18n="cv_section_education">
         <span class="w-8 h-[2px] bg-indigo-500"></span> Education
     </h2>
 
@@ -20,7 +41,8 @@ const { educationList } = Astro.props;
                 <div class="flex justify-between items-start gap-4 group">
                     <div class="space-y-3">
                         <div>
-                            <h3 class="font-bold text-zinc-900 text-lg leading-tight group-hover:text-indigo-600 transition-colors">
+                            <h3 class="font-bold text-zinc-900 text-lg leading-tight group-hover:text-indigo-600 transition-colors"
+                                data-i18n={degreeKeyMap[edu.degree] ?? ''}>
                                 {edu.degree}
                             </h3>
                             <p class="text-sm font-semibold text-indigo-500">
@@ -47,16 +69,19 @@ const { educationList } = Astro.props;
                                                 )}
                                             </span>
                                             <span class="text-xs font-bold uppercase tracking-wider text-zinc-500">
-                                                {semester.name}{" "}
-                                                {semester.isCurrent &&
-                                                    "(Current)"}
+                                                <span data-i18n={semesterKeyMap[semester.name] ?? ''}>{semester.name}</span>
+                                                {" "}
+                                                {semester.isCurrent && (
+                                                    <span data-i18n="cv_current">(Current)</span>
+                                                )}
                                             </span>
                                         </div>
 
                                         <div class="flex flex-wrap gap-2">
                                             {semester.courses.map((course) => (
                                                 <span class="px-2 py-1 bg-white border border-zinc-200 rounded text-[11px] text-zinc-600 font-medium">
-                                                    <strong class="text-zinc-900">
+                                                    <strong class="text-zinc-900"
+                                                        data-i18n={courseKeyMap[course.name] ?? ''}>
                                                         {course.name}
                                                     </strong>
                                                     {course.details &&

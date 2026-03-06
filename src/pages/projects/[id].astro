@@ -2,7 +2,7 @@
 import Layout from "../../layouts/Layout.astro";
 import { getCollection, render } from "astro:content";
 import { Image } from "astro:assets";
-import GithubIcon from "../../components/icons/social/GithubIcon.astro"; // Assure-toi que le chemin est correct
+import GithubIcon from "../../components/icons/social/GithubIcon.astro";
 import ImageGallery from "../../components/projects/ImageGallery";
 import type { ImageMetadata } from "astro";
 
@@ -17,7 +17,7 @@ export async function getStaticPaths() {
 
 // Récupère le projet spécifique en fonction du id
 const { project } = Astro.props;
-const { Content } = await render(project); // Pour afficher le contenu Markdown
+const { Content } = await render(project);
 
 // Logique pour récupérer les logos (identique au CV)
 const allLogos = import.meta.glob<{ default: ImageMetadata }>(
@@ -64,9 +64,13 @@ const galleryImages = project.data.gallery
       })
       .filter((img) => img.src)
   : [];
+
+// Title EN/FR
+const titleEn = project.data.title;
+const titleFr = project.data.titleFr ?? project.data.title;
 ---
 
-<Layout title={`${project.data.title} | Théo Fernando`}>
+<Layout title={`${titleEn} | Théo Fernando`}>
   <div class="max-w-4xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
     <a
       href="/projects"
@@ -83,15 +87,20 @@ const galleryImages = project.data.gallery
         stroke-linejoin="round"
         ><polyline points="15 18 9 12 15 6"></polyline></svg
       >
-      Back to Projects
+      <span data-i18n="project_back">Back to Projects</span>
     </a>
 
     <article
       class="bg-white rounded-xl shadow-lg border border-zinc-100 p-8 space-y-8"
     >
       <header class="text-center">
-        <h1 class="text-4xl font-bold text-zinc-900 mb-3 leading-tight">
-          {project.data.title}
+        <!-- Bilingual title: JS client switches based on lang -->
+        <h1
+          class="text-4xl font-bold text-zinc-900 mb-3 leading-tight"
+          data-title-en={titleEn}
+          data-title-fr={titleFr}
+        >
+          {titleEn}
         </h1>
         <p class="text-zinc-500 text-sm italic">
           {
@@ -119,7 +128,8 @@ const galleryImages = project.data.gallery
 
       <section class="space-y-6">
         <h2 class="text-2xl font-bold text-zinc-900 flex items-center gap-3">
-          <span class="w-8 h-[2px] bg-indigo-500"></span> Technologies Used
+          <span class="w-8 h-[2px] bg-indigo-500"></span>
+          <span data-i18n="project_tech_title">Technologies Used</span>
         </h2>
         <div class="flex flex-wrap gap-4">
           {
@@ -146,8 +156,10 @@ const galleryImages = project.data.gallery
 
       <section class="prose prose-indigo max-w-none space-y-6">
         <h2 class="text-2xl font-bold text-zinc-900 flex items-center gap-3">
-          <span class="w-8 h-[2px] bg-indigo-500"></span> Description
+          <span class="w-8 h-[2px] bg-indigo-500"></span>
+          <span data-i18n="project_description">Description</span>
         </h2>
+        <!-- Content has EN/FR divs with data-lang-content; JS toggles visibility -->
         <Content />
       </section>
 
@@ -155,7 +167,8 @@ const galleryImages = project.data.gallery
         galleryImages.length > 0 && (
           <section>
             <h2 class="text-2xl font-bold text-zinc-900 mb-6 flex items-center gap-3">
-              <span class="w-8 h-[2px] bg-indigo-500" /> Image Gallery
+              <span class="w-8 h-[2px] bg-indigo-500" />
+              <span data-i18n="project_gallery">Image Gallery</span>
             </h2>
             <ImageGallery client:load images={galleryImages} />
           </section>
@@ -166,7 +179,8 @@ const galleryImages = project.data.gallery
         project.data.github && (
           <section>
             <h2 class="text-2xl font-bold text-zinc-900 mb-6 flex items-center gap-3">
-              <span class="w-8 h-[2px] bg-indigo-500" /> Source Code
+              <span class="w-8 h-[2px] bg-indigo-500" />
+              <span data-i18n="project_source">Source Code</span>
             </h2>
             <a
               href={project.data.github}
@@ -175,7 +189,7 @@ const galleryImages = project.data.gallery
               title="View project on GitHub"
             >
               <GithubIcon class="w-6 h-6" />
-              View on GitHub
+              <span data-i18n="project_github_btn">View on GitHub</span>
             </a>
           </section>
         )
@@ -185,7 +199,8 @@ const galleryImages = project.data.gallery
         project.data.demo && (
           <section>
             <h2 class="text-2xl font-bold text-zinc-900 mb-6 flex items-center gap-3">
-              <span class="w-8 h-[2px] bg-indigo-500" /> Live Demo / Video
+              <span class="w-8 h-[2px] bg-indigo-500" />
+              <span data-i18n="project_demo">Live Demo / Video</span>
             </h2>
             <div class="relative w-full overflow-hidden rounded-lg shadow-md aspect-video">
               <iframe

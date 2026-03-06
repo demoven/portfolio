@@ -7,38 +7,62 @@ interface Props {
 }
 
 const { internships } = Astro.props;
+
+// i18n key maps for internship fields
+const titleKeyMap: Record<string, string> = {
+    'Web Developer Intern': 'internship_title',
+};
+const companyKeyMap: Record<string, string> = {
+    'City of La Seyne-sur-Mer': 'internship_company',
+};
+const categoryKeyMap: Record<string, string> = {
+    'Microservices Architecture': 'internship_category',
+};
+const achievementKeys: Record<string, string[]> = {
+    'Web Developer Intern': [
+        'internship_achievement_1',
+        'internship_achievement_2',
+        'internship_achievement_3',
+    ],
+};
 ---
 
 <section>
-    <h2 class="text-2xl font-bold text-zinc-900 mb-8 flex items-center gap-3">
+    <h2 class="text-2xl font-bold text-zinc-900 mb-8 flex items-center gap-3" data-i18n="cv_section_internships">
         <span class="w-8 h-[2px] bg-indigo-500"></span> Internships
     </h2>
     <div class="space-y-10">
         {
             internships.map((internship) => (
                 <div class="relative group">
-                    <h3 class="text-lg font-bold text-zinc-800 group-hover:text-indigo-600 transition-colors italic">
+                    <h3 class="text-lg font-bold text-zinc-800 group-hover:text-indigo-600 transition-colors italic"
+                        data-i18n={titleKeyMap[internship.title] ?? ''}>
                         {internship.title}
                     </h3>
 
                     <p class="text-indigo-500 text-sm font-semibold">
-                        {internship.company} ({internship.location}) |{" "}
-                        {internship.period}
+                        <span data-i18n={companyKeyMap[internship.company] ?? ''}>{internship.company}</span>
+                        {" "}({internship.location}) | {internship.period}
                     </p>
 
-                    <p class="mt-2 text-xs font-medium text-zinc-500 uppercase tracking-wider">
+                    <p class="mt-2 text-xs font-medium text-zinc-500 uppercase tracking-wider"
+                        data-i18n={categoryKeyMap[internship.category] ?? ''}>
                         {internship.category}
                     </p>
 
                     <ul class="mt-4 space-y-3">
-                        {internship.achievements.map((achievement) => (
-                            <li class="flex gap-3 text-sm text-zinc-600 leading-relaxed">
-                                <span class="text-indigo-500 mt-1.5 leading-none">
-                                    •
-                                </span>
-                                <span>{achievement}</span>
-                            </li>
-                        ))}
+                        {internship.achievements.map((achievement, idx) => {
+                            const keys = achievementKeys[internship.title] ?? [];
+                            const key = keys[idx] ?? '';
+                            return (
+                                <li class="flex gap-3 text-sm text-zinc-600 leading-relaxed">
+                                    <span class="text-indigo-500 mt-1.5 leading-none">
+                                        •
+                                    </span>
+                                    <span data-i18n={key}>{achievement}</span>
+                                </li>
+                            );
+                        })}
                     </ul>
                 </div>
             ))

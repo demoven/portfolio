@@ -4,10 +4,11 @@ const projects = defineCollection({
   type: 'content',
   schema: z.object({
     title: z.string(),
-    date: z.coerce.date(), // Transforme automatiquement la string du MD en objet Date
+    titleFr: z.string().optional(), // Titre traduit en français
+    date: z.coerce.date(),
     technologies: z.array(z.string()),
     image: z.string(),
-    gallery: z.array(z.string()).optional(), // Images supplémentaires pour la galerie
+    gallery: z.array(z.string()).optional(),
     github: z.string().url().optional(),
     demo: z.string().url().optional(),
   }),

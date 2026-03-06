@@ -7,11 +7,24 @@ interface Props {
 }
 
 const { interests } = Astro.props;
+
+// Map static interest identifiers to i18n keys
+const titleKeyMap: Record<string, string> = {
+    Travel: 'interest_travel_title',
+    Cooking: 'interest_cooking_title',
+    Music: 'interest_music_title',
+};
+const descKeyMap: Record<string, string> = {
+    Travel: 'interest_travel_desc',
+    Cooking: 'interest_cooking_desc',
+    Music: 'interest_music_desc',
+};
 ---
 
 <section>
     <h2
         class="text-xs font-bold uppercase tracking-[0.2em] text-zinc-400 mb-6 md:text-left"
+        data-i18n="cv_section_interests"
     >
         Interests
     </h2>
@@ -40,17 +53,18 @@ const { interests } = Astro.props;
                         </svg>
                     </div>
                     <div class="flex-1">
-                        <h3 class="text-sm font-bold text-zinc-800">
+                        <h3 class="text-sm font-bold text-zinc-800" data-i18n={titleKeyMap[interest.title] ?? ''}>
                             {interest.title}
                         </h3>
-                        <p class="text-xs text-zinc-500 leading-relaxed">
+                        <p class="text-xs text-zinc-500 leading-relaxed" data-i18n={descKeyMap[interest.title] ?? ''}>
                             {interest.description}
                         </p>
                         {interest.countries && (
                             <div class="flex flex-wrap gap-2 mt-3">
                                 {interest.countries.map((country) => (
                                     <div class="inline-flex items-center gap-1.5 px-2.5 py-1 bg-gradient-to-br from-zinc-50 to-zinc-100 border border-zinc-200 rounded-full text-xs font-medium text-zinc-700 hover:shadow-sm transition-shadow">
-                                        <span>{country.name}</span>
+                                        {/* data-country enables JS client to translate the name */}
+                                        <span data-country={country.name}>{country.name}</span>
                                         {country.visits > 1 && (
                                             <span class="text-zinc-500">
                                                 ({country.visits}x)

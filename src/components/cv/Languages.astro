@@ -7,20 +7,30 @@ interface Props {
 }
 
 const { languages } = Astro.props;
+
+// Map language names to i18n keys
+const nameKeyMap: Record<string, string> = {
+    French: 'lang_french',
+    English: 'lang_english',
+};
+const levelKeyMap: Record<string, string> = {
+    French: 'lang_french_level',
+    English: 'lang_english_level',
+};
 ---
 
 <section>
-    <h2 class="text-xs font-bold uppercase tracking-[0.2em] text-zinc-400 mb-6">
+    <h2 class="text-xs font-bold uppercase tracking-[0.2em] text-zinc-400 mb-6" data-i18n="cv_section_languages">
         Languages
     </h2>
     <div class="space-y-4">
         {
             languages.map((language) => (
                 <div class="flex flex-col">
-                    <span class="font-bold text-zinc-800 text-sm">
+                    <span class="font-bold text-zinc-800 text-sm" data-i18n={nameKeyMap[language.name] ?? ''}>
                         {language.name}
                     </span>
-                    <span class="text-xs text-zinc-500">{language.level}</span>
+                    <span class="text-xs text-zinc-500" data-i18n={levelKeyMap[language.name] ?? ''}>{language.level}</span>
                     <div class="w-full bg-zinc-100 h-1.5 mt-2 rounded-full overflow-hidden">
                         <div
                             class={`h-full ${language.percentage === 100 ? "bg-indigo-500" : "bg-indigo-400"}`}

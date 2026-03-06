@@ -1,8 +1,9 @@
 ---
 title: "GarageWeek - Safetrix"
+titleFr: "GarageWeek - Safetrix"
 date: "2024-06-20"
 technologies: ["Node.js", "Python"]
-image: "/src/assets/projects/Safetrix/Safetrix_Poster.png" # 
+image: "/src/assets/projects/Safetrix/Safetrix_Poster.png"
 gallery: 
   - "/src/assets/projects/Safetrix/Safetrix_Poster.png"
   - "/src/assets/projects/Safetrix/Safetrix1.png"
@@ -12,6 +13,8 @@ gallery:
   - "/src/assets/projects/Safetrix/Safetrix5.png"
   - "/src/assets/projects/Safetrix/Safetrix6.png"
 ---
+
+<div data-lang-content="en">
 
 # 🏆 Safetrix – Connected Safety for Waste Management
 
@@ -56,3 +59,53 @@ As the **Project Manager** of the winning team, I led the development from the i
 * **Agile Management:** Coordinating the hardware (Arduino/3D Print) and software (Python/Raspberry Pi) teams to ensure integration within the 2-week deadline.
 * **Product Strategy:** Aligning the technical features with Veolia's industrial safety requirements.
 * **Final Defense:** Leading the presentation and demonstration before a professional jury, highlighting our functional prototype's ability to reduce man-machine collision risks.
+
+</div>
+
+<div data-lang-content="fr">
+
+# 🏆 Safetrix – Sécurité connectée pour la gestion des déchets
+
+**Lauréat de la « Garage Week » 2024 à l'ISEN Toulon.**
+
+---
+
+### Présentation du projet
+Safetrix est une solution IoT conçue pour améliorer la sécurité des travailleurs dans des environnements industriels dangereux. Le projet a été développé lors de la **Garage Week 2024**, un **sprint d'innovation intensif de 2 semaines** obligatoire pour tous les étudiants de 3ème année de l'ISEN Toulon, en partenariat avec **Veolia**.
+
+Notre équipe a décroché la **1ère place sur 20 équipes** (environ 115 étudiants) en livrant un prototype pleinement fonctionnel pour prévenir les accidents dans les centres de tri des déchets.
+
+---
+
+### 🛠 Architecture technique & Prototype
+Nous avons dépassé la phase conceptuelle pour construire un écosystème physique et fonctionnel en trois couches :
+
+* **Le Wearable (Récepteur) :**
+    * Conception et **impression 3D** d'un boîtier de bracelet personnalisé.
+    * Intégration d'un microcontrôleur **Arduino** avec un **écran LCD** pour afficher les alertes (vibration + texte).
+    * Reçoit les consignes de sécurité en temps réel via Bluetooth.
+
+* **L'Infrastructure (Émetteurs) :**
+    * Déploiement d'unités **Raspberry Pi Zero** agissant comme balises Bluetooth.
+    * Chaque Pi représente une « zone de sécurité » spécifique et diffuse les instructions propres à cette zone (ex. « Porter un casque »).
+
+* **Le Logiciel (Contrôle) :**
+    * Développement d'une **application Python** pour gérer le système.
+    * Permet au responsable de site de configurer chaque zone et mettre à jour les messages de sécurité transmis par les Raspberry Pi aux bracelets.
+
+---
+
+### 🥇 Réalisations clés
+* **Classement :** **1ère Place** (Équipe lauréate).
+* **Performance :** Démonstration réussie d'un prototype fonctionnel en direct devant le jury.
+* **Client :** **Veolia** (Gestion des déchets et services aux collectivités).
+
+---
+
+### 👨‍💼 Mon rôle : Chef de projet
+En tant que **Chef de projet** de l'équipe lauréate, j'ai piloté le développement du brief initial jusqu'à la démo technique finale. Mes responsabilités comprenaient :
+* **Management Agile :** Coordination des équipes hardware (Arduino/impression 3D) et software (Python/Raspberry Pi) pour assurer l'intégration dans le délai de 2 semaines.
+* **Stratégie produit :** Alignement des fonctionnalités techniques avec les exigences de sécurité industrielle de Veolia.
+* **Soutenance finale :** Direction de la présentation et de la démonstration devant un jury professionnel, mettant en valeur la capacité de notre prototype fonctionnel à réduire les risques de collision homme-machine.
+
+</div>
