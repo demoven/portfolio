@@ -20,8 +20,8 @@ export const translations = {
   // ── Projects page ─────────────────────────────────────────
   projects_title: { en: 'My Projects', fr: 'Mes Projets' },
   projects_subtitle: {
-    en: 'Discover my latest work, from full-stack web applications to machine learning experiments and 3D simulations.',
-    fr: 'Découvrez mes derniers travaux, des applications web full-stack aux expériences de machine learning et simulations 3D.',
+    en: 'Discover my latest work',
+    fr: 'Découvrez mes derniers travaux',
   },
 
   // ── Project detail page ────────────────────────────────────
