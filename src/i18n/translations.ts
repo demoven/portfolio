@@ -89,8 +89,8 @@ export const translations = {
 
   // ── Internships ───────────────────────────────────────────
   internship_title: {
-    en: 'Web Developer Intern',
-    fr: 'Développeur Web Stagiaire',
+    en: 'Software Engineer Intern',
+    fr: 'Stagiaire Ingénieur Logiciel',
   },
   internship_company: { en: 'City of La Seyne-sur-Mer', fr: 'Ville de La Seyne-sur-Mer' },
   internship_category: {

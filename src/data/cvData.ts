@@ -85,7 +85,7 @@ export const interests: Interest[] = [
 
 export const internships: Internship[] = [
     {
-        title: 'Web Developer Intern',
+        title: 'Software Engineer Intern',
         company: 'City of La Seyne-sur-Mer',
         location: 'France',
         period: 'Jun. 2025 - Aug. 2025',
